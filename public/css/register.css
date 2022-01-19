@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "register"
+    ;
+    height: 100vh;
+    text-align: center;
+}
+
+.registration {
+    grid-area: register;
+    padding: var(--main-padding);
+}

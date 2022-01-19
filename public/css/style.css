@@ -1,54 +1,12 @@
 :root {
     --main-padding: 0.4rem;
 }
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: 0.2fr 0.8fr 0.8fr 0.2fr;
-    grid-template-areas: 
-    "nav nav nav nav"
-    "personal-info personal-info education education"
-    "technical technical soft soft"
-    "footer footer footer footer"
-    ;
-    height: 100vh;
-    text-align: center;
-    text-transform: uppercase;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-nav {
-    grid-area: nav;
-    padding: var(--main-padding);
-}
-
-#personal-info {
-    grid-area: personal-info;
-    padding: var(--main-padding);
-}
-
-#education {
-    grid-area: education;
-    padding: var(--main-padding)
-}
-
-#education table {
-    margin: 0 auto;
-}
-
-#technical {
-    grid-area: technical;
-    padding: var(--main-padding);
-}
-
-.header-title {
-    font-size: 3rem;
-}
-
-#soft {
-    grid-area: soft;
-    pad: var(--main-padding);
-}
 
 footer {
     background-color: #212529;
@@ -56,8 +14,6 @@ footer {
     text-align: center;
     font-size: 1.25rem;
     padding: 0.5rem;
-    grid-area: footer;
-    padding: var(--main-padding);
 }
 
 footer ul {
