@@ -1,12 +1,18 @@
 const User = require('../models/user')
+const Info = require('../models/info')
 const express = require('express');;
 const passport = require('passport');
 const date = require('../getDate.js');
 
 exports.getMainPage = (req, res) => {
+    Info.fetchInfo(infoMass => {
+        console.log(infoMass);
+
     let today = date.getDate();
-    res.render('index', {dateToRender: today});
-};
+    res.render('index', {dateToRender: today, displayInfo: infoMass});
+    });
+    
+}
 
 exports.getDate = (req, res)=> { 
     let today = date.getDate();
@@ -30,14 +36,14 @@ exports.postRegisterPage = (req, res) => {
             res.redirect('/register');
         } else {
             passport.authenticate('local')(req, res, () => {
-                res.render('admin');
+                res.redirect('/admin');
             });
         }
     });
 };
 
 exports.postLoginPage = (req, res) => {
-    const User = new User({
+    const user = new User({
         username: req.body.username,
         password: req.body.password
     });
@@ -54,16 +60,41 @@ exports.postLoginPage = (req, res) => {
     });
 };
 
+
+
 exports.userLogout = (req, res) => {
     req.logout();
     res.redirect('/');
 };
 
 exports.getAdminPage = (req, res) => {
-    let today = date.getDate();
-    if(req.isAuthenticated()) {
-        res.render('admin', {dateToRender: today})
-    } else {
-        res.redirect('/')
-    }
+    Info.fetchInfo(infoMass => {
+        console.log(infoMass);
+
+        let today = date.getDate();
+        if(req.isAuthenticated) {
+            res.render('admin', {dateToRender: today, displayInfo: infoMass})
+        } else {
+            res.redirect('/')
+        }
+    });
 };
+
+
+
+exports.postInfo = (req, res) => {
+    console.log(req.body.userInfo);
+
+    const newInfo = new Info(req.body.userInfo,);
+
+    newInfo.saveInfo();
+    
+    res.redirect('/admin');
+}
+
+exports.deleteInfo = (req, res) => {
+    let infoToDelete = req.body.infoToDelete;
+    Wish.deleteInfo(infoToDelete);
+    res.redirect('/admin');
+
+}

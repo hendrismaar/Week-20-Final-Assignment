@@ -7,35 +7,40 @@
 
     <div class="container">
             <main>
-                <h2 class="header-title">Personal information:</h2>
                 <ul>
-                    <li>Hendris Määr</li>
-                    <li>19.05.2004</li>
-                    <li>Tunneli Talu, Lehetu</li>
+                    <li><h2>Personal information</h2></li>
+                    <% for(let i = 0; i < displayInfo.length; i ++) { %>
+                        <li><%= displayInfo[i].infoContent %></li>
+                    <% } %>      
                 </ul>
             </main> 
 
             <div id="education">
-                <h2 class="header-title">Education</h2>
-                <table>
-                    <tr>
-                        <th>School</th>
-                        <th>Year of graduation</th>
-                    </tr>
-                    <tr>
-                        <td>Ruila Põhikool</td>
-                        <td>2020</td>
-                    </tr>
-                    <tr>
-                        <td>Tallinna Tööstushariduskeskus</td>
-                        <td>-</td>
-                    </tr>
-                </table>
+                <ul>
+                    <li>
+                        <h2>Education</h2>
+                        <table>
+                            <tr>
+                                <th>School</th>
+                                <th>Year of graduation</th>
+                            </tr>
+                            <tr>
+                                <td>Ruila Põhikool</td>
+                                <td>2020</td>
+                            </tr>
+                            <tr>
+                                <td>Tallinna Tööstushariduskeskus</td>
+                                <td>-</td>
+                            </tr>
+                    </table>
+                    </li>
+                </ul>
+                
             </div>
 
             <div id="technical">
-                <h2 class="header-title">Technical skills</h2>
                 <ul>
+                    <li><h2>Technical skills</h2></li>
                     <li>Programming</li>
                     <li>Back-end</li>
                     <li>Front-end</li>
@@ -44,8 +49,8 @@
             </div>
 
             <div id="soft">
-                <h2 class="header-title">Soft skills</h2>
                 <ul>
+                    <li><h2>Soft skills</h2></li>
                     <li>Time management</li>
                     <li>Creative thinking</li>
                     <li>Teamwork</li>

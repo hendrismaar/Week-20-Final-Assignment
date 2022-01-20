@@ -5,22 +5,24 @@
 <body>
     <%- include('partials/navbar') %>
 
-        <div class="container">
-            <div id="registration">
-                <h1>Register</h1>
-                <form>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" placeholder="Enter your email">
-                        <div id="emailHelp" class="form-text">We'll share your email with the entire world.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Enter your password">
-                    </div>
-                <button type="submit" class="btn btn-primary">Register</button>
-                </form>
-            </div>
+        <div class="container registration">
+                <ul>
+                    <li>
+                        <h1>Register</h1>
+                        <form action="/register" method="POST">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" placeholder="Enter your email">
+                                <div id="emailHelp" class="form-text">We'll share your email with the entire world.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Enter your password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </form>
+                    </li>
+                </ul>
         </div>
 
 <%- include('partials/footer') %>

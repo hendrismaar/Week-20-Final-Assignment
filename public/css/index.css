@@ -11,12 +11,21 @@
     text-transform: uppercase;
 }
 
+h2 {
+    font-size: 3rem;
+}
 main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: personal-info;
     padding: var(--main-padding);
 }
 
 #education {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: education;
     padding: var(--main-padding);
 }
@@ -27,15 +36,20 @@ main {
 }
 
 #technical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: technical;
     padding: var(--main-padding);
 }
 
-.header-title {
-    font-size: 3rem;
-}
+
 
 #soft {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: soft;
     padding: var(--main-padding);
 }

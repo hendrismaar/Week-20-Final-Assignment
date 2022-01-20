@@ -10,4 +10,11 @@ router.post('/login', mainController.postLoginPage);
 router.get('/admin', mainController.getAdminPage);
 router.get('/logout', mainController.userLogout);
 
+// here starts what i like to call the endless sea of forms
+
+router.post('/', mainController.postInfo);
+
+router.post('/deleteWish', mainController.deleteInfo);
+
+
 module.exports = router;

@@ -10,6 +10,9 @@
 }
 
 .registration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: register;
     padding: var(--main-padding);
 }
