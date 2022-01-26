@@ -1,6 +1,19 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+const multer = require('multer');
 const mainController = require('../controllers/mainController');
+
+let upload = multer({
+    storage: multer.diskStorage({
+        destination: (req, file, cb) => {
+            cb(null, './images');
+        },
+        filename: function(req, file, cb) {
+            cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+        }
+    })
+});
 
 router.get('/', mainController.getMainPage);
 router.get('/register', mainController.getRegisterPage);
@@ -10,11 +23,11 @@ router.post('/login', mainController.postLoginPage);
 router.get('/admin', mainController.getAdminPage);
 router.get('/logout', mainController.userLogout);
 
-// here starts what i like to call the endless sea of forms
+router.post('/admin', upload.single('userFile'), mainController.postInfo);
 
 router.post('/', mainController.postInfo);
 
-router.post('/deleteWish', mainController.deleteInfo);
+
 
 
 module.exports = router;

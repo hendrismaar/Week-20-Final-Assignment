@@ -1,5 +1,5 @@
-const User = require('../models/user')
-const Info = require('../models/info')
+const Info = require('../models/info');
+const User = require('../models/user');
 const express = require('express');;
 const passport = require('passport');
 const date = require('../getDate.js');
@@ -7,7 +7,7 @@ const date = require('../getDate.js');
 exports.getMainPage = (req, res) => {
     Info.fetchInfo(infoMass => {
         console.log(infoMass);
-
+        
     let today = date.getDate();
     res.render('index', {dateToRender: today, displayInfo: infoMass});
     });
@@ -81,20 +81,11 @@ exports.getAdminPage = (req, res) => {
 };
 
 
-
 exports.postInfo = (req, res) => {
-    console.log(req.body.userInfo);
 
-    const newInfo = new Info(req.body.userInfo,);
+    const newInfo = new Info(req.body.userInfo, req.body.userEduSchool, req.body.userEduYear, req.body.userTech, req.body.userSoft, req.body.filename);
 
     newInfo.saveInfo();
     
     res.redirect('/admin');
-}
-
-exports.deleteInfo = (req, res) => {
-    let infoToDelete = req.body.infoToDelete;
-    Wish.deleteInfo(infoToDelete);
-    res.redirect('/admin');
-
 }

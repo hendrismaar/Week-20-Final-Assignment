@@ -3,8 +3,13 @@ const path = require('path');
 const filePath = path.join(path.dirname(require.main.filename), 'data', 'info.json');
 
 module.exports = class Info {
-    constructor(content) {
-        this.infoContent = content;
+    constructor(info, eduSchool, eduYear, tech, soft, imageUrl) {
+        this.infoContent = info; //content = info
+        this.eduSchoolContent = eduSchool;
+        this.eduYearContent = eduYear;
+        this.techContent = tech;
+        this.softContent = soft;
+        this.imageUrl = imageUrl;
     }
 
     saveInfo() {
@@ -39,27 +44,4 @@ module.exports = class Info {
             callBack(JSON.parse(fileContent));
         });
     }
-
-    static deleteInfo(infoToDelete){
-        fs.readFile(filePath, (error, fileContent) => {
-            let infoMass = [];
-            if(!error){
-                infoMass = JSON.parse(fileContent);
-            }
-            for (let i = 0; i < infoMass.length; i++) {
-                if (infoMass[i].content === infoToDelete) {
-                    infoMass.splice(i, 1);
-                    break;
-                }
-            }
-
-            fs.writeFile(filePath, JSON.stringify(infoMass), (error) => {
-                if(!error){
-                    console.log("Information deleted")
-                }
-            });
-
-        });
-    }
-
 }

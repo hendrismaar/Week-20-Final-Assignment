@@ -24,37 +24,45 @@
                                 <th>School</th>
                                 <th>Year of graduation</th>
                             </tr>
-                            <tr>
-                                <td>Ruila Põhikool</td>
-                                <td>2020</td>
-                            </tr>
-                            <tr>
-                                <td>Tallinna Tööstushariduskeskus</td>
-                                <td>-</td>
-                            </tr>
+                            <% for(let i = 0; i < displayInfo.length; i ++) { %>
+                                <tr>
+                                    <td><%= displayInfo[i].eduSchoolContent %></td>
+                                    <td><%= displayInfo[i].eduYearContent %></td>
+                                </tr>
+                            <% } %> 
                     </table>
                     </li>
                 </ul>
-                
             </div>
 
             <div id="technical">
                 <ul>
                     <li><h2>Technical skills</h2></li>
-                    <li>Programming</li>
-                    <li>Back-end</li>
-                    <li>Front-end</li>
-                    <li>Version control</li>
+                    <% for(let i = 0; i < displayInfo.length; i ++) { %>
+                        <li><%= displayInfo[i].techContent %></li>
+                    <% } %> 
                 </ul>
             </div>
 
             <div id="soft">
+                
                 <ul>
                     <li><h2>Soft skills</h2></li>
-                    <li>Time management</li>
-                    <li>Creative thinking</li>
-                    <li>Teamwork</li>
+                    <% for(let i = 0; i < displayInfo.length; i ++) { %>
+                        <li><%= displayInfo[i].softContent %></li>
+                    <% } %> 
                 </ul>
             </div>
-          </div>
+
+            <div id="img">
+                <ul>
+                    <li><h2>Images</h2></li>
+                <% for(let i = 0; i < displayInfo.length; i ++) { %>
+                    <li>
+                        <img src="<%= displayInfo[i].imageUrl %>" alt=""> 
+                    </li>
+                <% } %> 
+                </ul>
+            </div>
+        </div>
 <%- include('partials/footer') %>
