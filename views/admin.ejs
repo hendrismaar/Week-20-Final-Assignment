@@ -1,92 +1,95 @@
 <%- include('partials/header') %>   
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
     <title>Admin</title>
 </head>
 <body>
 <%- include('partials/navbar') %>
-<a href="/logout">Log out</a>
 
 
-<div class="admin-container">
+
+<div class="admin-container">   
     <div id="info-form">
-        <h1>Personal Information</h1>
-        <form action="/admin" method="POST" enctype="multipart/form-data">
-            <h4>Personal info</h4>
-            <input type="text" name="userInfo" placeholder="Add some info" >
-            <h4>School and graduation year</h4>
-            <input type="text" name="userEduSchool" placeholder="Add a school">
-            <input type="text" name="userEduYear" placeholder="Add the graduation year">
-            <h4>Technical skills</h4>
-            <input type="text" name="userTech" placeholder="Add a technical skill">
-            <h4>Soft skills</h4>
-            <input type="text" name="userSoft" placeholder="Add a soft skill">
-            <h4>Images</h4>
-            <input type="file" name="userFile" placeholder="Add an image">
-            <p></p>
-            <button type="submit">Add the info</button>
-        </form>
+        <ul>
+            <li>
+                <h1>Personal Information</h1>
+                <form action="/admin" method="POST" enctype="multipart/form-data">
+                    <h4>Personal info</h4>
+                    <input class="form-control" type="text" name="userInfo" placeholder="Add some info" >
+                    <h4>School and graduation year</h4>
+                    <div class="input-group-text">
+                        <input class="form-control" type="text" name="userEduSchool" placeholder="Add a school">
+                        <input class="form-control" type="text" name="userEduYear" placeholder="Add the graduation year">
+                    </div>
+                    <h4>Technical skills</h4>
+                    <input class="form-control" type="text" name="userTech" placeholder="Add a technical skill">
+                    <h4>Soft skills</h4>
+                    <input class="form-control" type="text" name="userSoft" placeholder="Add a soft skill">
+                    <h4>Image</h4>
+                    <input class="form-control" type="file" name="userFile" placeholder="Add an image">
+                    <p></p>
+                    <button class="btn btn-primary" type="submit">Add the info</button>
+                </form>
+            </li>
+        </ul>
     </div>  
-</div>
-<div class="display-info">
-    <main>
-        <ul>
-            <li><h2>Personal information</h2></li>
-            <% for(let i = 0; i < displayInfo.length; i ++) { %>
-                <li><%= displayInfo[i].infoContent %></li>
-            <% } %>      
-        </ul>
-    </main> 
 
-    <div id="education">
-        <ul>
-            <li>
-                <h2>Education</h2>
-                <table>
-                    <tr>
-                        <th>School</th>
-                        <th>Year of graduation</th>
-                    </tr>
-                    <% for(let i = 0; i < displayInfo.length; i ++) { %>
+<div id="display-info">
+    <ul>
+        <main>
+            <ul>
+                <li><h2>Personal information</h2></li>
+                    <li><%= displayInfo.infoContent %></li>     
+            </ul>
+        </main> 
+
+        <div id="education">
+            <ul>
+                <li>
+                    <h2>Education</h2>
+                    <table>
                         <tr>
-                            <td><%= displayInfo[i].eduSchoolContent %></td>
-                            <td><%= displayInfo[i].eduYearContent %></td>
+                            <th>School</th>
+                            <th>Year of graduation</th>
                         </tr>
-                    <% } %> 
-            </table>
-            </li>
-        </ul>
-        
-    </div>
+                            <tr>
+                                <td><%= displayInfo.eduSchoolContent %></td>
+                                <td><%= displayInfo.eduYearContent %></td>
+                            </tr>
+                </table>
+                </li>
+            </ul>
+            
+        </div>
 
-    <div id="technical">
-        <ul>
-            <li><h2>Technical skills</h2></li>
-            <% for(let i = 0; i < displayInfo.length; i ++) { %>
-                <li><%= displayInfo[i].techContent %></li>
-            <% } %> 
-        </ul>
-    </div>
+        <div id="technical">
+            <ul>
+                <li><h2>Technical skills</h2></li>
+                    <li><%= displayInfo.techContent %></li> 
+            </ul>
+        </div>
 
-    <div id="soft">
-        
-        <ul>
-            <li><h2>Soft skills</h2></li>
-            <% for(let i = 0; i < displayInfo.length; i ++) { %>
-                <li><%= displayInfo[i].softContent %></li>
-            <% } %> 
-        </ul>
-    </div>
+        <div id="soft">
+            
+            <ul>
+                <li><h2>Soft skills</h2></li>
+                    <li><%= displayInfo.softContent %></li>
+            </ul>
+        </div>
 
-    <div id="img">
-        <ul>
-            <li><h2>Images</h2></li>
-        <% for(let i = 0; i < displayInfo.length; i ++) { %>
-            <li>
-                <img src="<%= displayInfo[i].imageUrl %>" alt=""> 
-            </li>
-        <% } %> 
+        <div id="img">
+            <ul>
+                <li><h2>Images</h2></li>
+                <li>
+                    <img src="<%= displayInfo.imageUrl %>" alt=""> 
+                </li>
+            </ul>
+            </li>   
         </ul>
     </div>
+    <div id="logout">
+        <a class="btn btn-primary" href="/logout">Log out</a>
+    </div>
+   
 </div>
   
 <%- include('partials/footer') %>

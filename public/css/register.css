@@ -1,3 +1,7 @@
+:root {
+    --main-padding: 0.4rem;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr;

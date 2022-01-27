@@ -9,7 +9,7 @@ exports.getMainPage = (req, res) => {
         console.log(infoMass);
         
     let today = date.getDate();
-    res.render('index', {dateToRender: today, displayInfo: infoMass});
+    res.render('index', {dateToRender: today, displayInfo: infoMass[0]});
     });
     
 }
@@ -73,7 +73,7 @@ exports.getAdminPage = (req, res) => {
 
         let today = date.getDate();
         if(req.isAuthenticated) {
-            res.render('admin', {dateToRender: today, displayInfo: infoMass})
+            res.render('admin', {dateToRender: today, displayInfo: infoMass, displayInfo: infoMass[0]})
         } else {
             res.redirect('/')
         }
@@ -83,8 +83,8 @@ exports.getAdminPage = (req, res) => {
 
 exports.postInfo = (req, res) => {
 
-    const newInfo = new Info(req.body.userInfo, req.body.userEduSchool, req.body.userEduYear, req.body.userTech, req.body.userSoft, req.body.filename);
-
+    const newInfo = new Info(req.body.userInfo, req.body.userEduSchool, req.body.userEduYear, req.body.userTech, req.body.userSoft, req.file.filename);
+    console.log(newInfo)
     newInfo.saveInfo();
     
     res.redirect('/admin');

@@ -4,7 +4,7 @@ const filePath = path.join(path.dirname(require.main.filename), 'data', 'info.js
 
 module.exports = class Info {
     constructor(info, eduSchool, eduYear, tech, soft, imageUrl) {
-        this.infoContent = info; //content = info
+        this.infoContent = info;
         this.eduSchoolContent = eduSchool;
         this.eduYearContent = eduYear;
         this.techContent = tech;

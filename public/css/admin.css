@@ -1,0 +1,55 @@
+:root {
+    --main-padding: 0.4rem;
+}
+
+.admin-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1fr, 0.5fr);
+    grid-template-areas: 
+    "info display"
+    "logout logout"
+    ;
+    height: 100vh;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#info-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: info;
+    padding: var(--main-padding);
+}
+
+#display-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: display;
+    padding: var(--main-padding);
+}
+
+#logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: logout;
+    padding: var(--main-padding);
+}
+
+.img-form {
+    margin-top: 2rem;
+}
+@media (max-width: 991px) {
+    .admin-container{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "info"
+        "display"
+        "logout"
+        ;
+    }
+}

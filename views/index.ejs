@@ -9,9 +9,7 @@
             <main>
                 <ul>
                     <li><h2>Personal information</h2></li>
-                    <% for(let i = 0; i < displayInfo.length; i ++) { %>
-                        <li><%= displayInfo[i].infoContent %></li>
-                    <% } %>      
+                        <li><%= displayInfo.infoContent %></li>
                 </ul>
             </main> 
 
@@ -24,12 +22,10 @@
                                 <th>School</th>
                                 <th>Year of graduation</th>
                             </tr>
-                            <% for(let i = 0; i < displayInfo.length; i ++) { %>
                                 <tr>
-                                    <td><%= displayInfo[i].eduSchoolContent %></td>
-                                    <td><%= displayInfo[i].eduYearContent %></td>
+                                    <td><%= displayInfo.eduSchoolContent %></td>
+                                    <td><%= displayInfo.eduYearContent %></td>
                                 </tr>
-                            <% } %> 
                     </table>
                     </li>
                 </ul>
@@ -38,9 +34,7 @@
             <div id="technical">
                 <ul>
                     <li><h2>Technical skills</h2></li>
-                    <% for(let i = 0; i < displayInfo.length; i ++) { %>
-                        <li><%= displayInfo[i].techContent %></li>
-                    <% } %> 
+                        <li><%= displayInfo.techContent %></li>
                 </ul>
             </div>
 
@@ -48,20 +42,16 @@
                 
                 <ul>
                     <li><h2>Soft skills</h2></li>
-                    <% for(let i = 0; i < displayInfo.length; i ++) { %>
-                        <li><%= displayInfo[i].softContent %></li>
-                    <% } %> 
+                        <li><%= displayInfo.softContent %></li>
                 </ul>
             </div>
 
             <div id="img">
                 <ul>
-                    <li><h2>Images</h2></li>
-                <% for(let i = 0; i < displayInfo.length; i ++) { %>
+                    <li><h2>Image</h2></li>
                     <li>
-                        <img src="<%= displayInfo[i].imageUrl %>" alt=""> 
+                        <img src="<%= displayInfo.imageUrl %>" alt=""> 
                     </li>
-                <% } %> 
                 </ul>
             </div>
         </div>

@@ -25,8 +25,6 @@ router.get('/logout', mainController.userLogout);
 
 router.post('/admin', upload.single('userFile'), mainController.postInfo);
 
-router.post('/', mainController.postInfo);
-
 
 
 
